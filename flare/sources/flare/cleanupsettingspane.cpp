@@ -3,15 +3,15 @@
 #include "tmsgcore.h"
 
 // ToonzLib includes
-#include "toonz/txshlevelhandle.h"
-#include "toonz/tscenehandle.h"
-#include "toonz/toonzscene.h"
-#include "toonz/toonzfolders.h"
-#include "toonz/cleanupcolorstyles.h"
+#include "flare/txshlevelhandle.h"
+#include "flare/tscenehandle.h"
+#include "flare/toonzscene.h"
+#include "flare/toonzfolders.h"
+#include "flare/cleanupcolorstyles.h"
 
 // ToonzQt includes
-#include "toonzqt/gutil.h"
-#include "toonzqt/doublefield.h"
+#include "flareqt/gutil.h"
+#include "flareqt/doublefield.h"
 
 // Toonz includes
 #include "tapp.h"
@@ -135,7 +135,7 @@ CleanupSettingsPane::CleanupSettingsPane(QWidget *parent)
   m_rotateOm->addItems(rotate);
   // Camera
   cameraFrame->setObjectName("CleanupSettingsFrame");
-  m_cameraWidget->setCameraPresetListFile(ToonzFolder::getReslistPath(true));
+  m_cameraWidget->setCameraPresetListFile(FlareFolder::getReslistPath(true));
   // LineProcessing
   lineProcFrame->setObjectName("CleanupSettingsFrame");
   QStringList items;
@@ -615,3 +615,4 @@ void CleanupSettingsPane::onSaveSettings() {
   }
   CleanupSettingsModel::instance()->promptSave();
 }
+

@@ -14,39 +14,39 @@
 #include "tunit.h"
 
 // TnzLib includes
-#include "toonz/txsheethandle.h"
-#include "toonz/tscenehandle.h"
-#include "toonz/tcolumnhandle.h"
-#include "toonz/tobjecthandle.h"
-#include "toonz/tframehandle.h"
-#include "toonz/txshlevelhandle.h"
-#include "toonz/txsheet.h"
-#include "toonz/txshcell.h"
-#include "toonz/txshcolumn.h"
-#include "toonz/toonzscene.h"
-#include "toonz/levelset.h"
-#include "toonz/txshsimplelevel.h"
-#include "toonz/txshleveltypes.h"
-#include "toonz/txshsoundtextcolumn.h"
-#include "toonz/txshsoundtextlevel.h"
-#include "toonz/tstageobjecttree.h"
-#include "toonz/tstageobjectkeyframe.h"
-#include "toonz/stageobjectutil.h"
-#include "toonz/toonzfolders.h"
-#include "toonz/txshchildlevel.h"
-#include "toonz/childstack.h"
-#include "toonz/tproject.h"
-#include "toonz/fxcommand.h"
-#include "toonz/tfxhandle.h"
-#include "toonz/scenefx.h"
-#include "toonz/preferences.h"
-#include "toonz/navigationtags.h"
+#include "flare/txsheethandle.h"
+#include "flare/tscenehandle.h"
+#include "flare/tcolumnhandle.h"
+#include "flare/tobjecthandle.h"
+#include "flare/tframehandle.h"
+#include "flare/txshlevelhandle.h"
+#include "flare/txsheet.h"
+#include "flare/txshcell.h"
+#include "flare/txshcolumn.h"
+#include "flare/toonzscene.h"
+#include "flare/levelset.h"
+#include "flare/txshsimplelevel.h"
+#include "flare/txshleveltypes.h"
+#include "flare/txshsoundtextcolumn.h"
+#include "flare/txshsoundtextlevel.h"
+#include "flare/tstageobjecttree.h"
+#include "flare/tstageobjectkeyframe.h"
+#include "flare/stageobjectutil.h"
+#include "flare/toonzfolders.h"
+#include "flare/txshchildlevel.h"
+#include "flare/childstack.h"
+#include "flare/tproject.h"
+#include "flare/fxcommand.h"
+#include "flare/tfxhandle.h"
+#include "flare/scenefx.h"
+#include "flare/preferences.h"
+#include "flare/navigationtags.h"
 
 // TnzQt includes
-#include "toonzqt/tselectionhandle.h"
-#include "toonzqt/gutil.h"
-#include "toonzqt/menubarcommand.h"
-#include "toonzqt/stageobjectsdata.h"
+#include "flareqt/tselectionhandle.h"
+#include "flareqt/gutil.h"
+#include "flareqt/menubarcommand.h"
+#include "flareqt/stageobjectsdata.h"
 #include "historytypes.h"
 #include "xsheetviewer.h"
 
@@ -1784,7 +1784,7 @@ std::vector<std::pair<std::string, string>> infos;
 void readParameters() {
   infos.clear();
   const std::string name("xsheet_html.xml");
-  TFilePath fp = ToonzFolder::getModuleFile(name);
+  TFilePath fp = FlareFolder::getModuleFile(name);
   if (!TFileStatus(fp).doesExist()) return;
   try {
     TIStream is(fp);
@@ -1813,7 +1813,7 @@ void copyCss(TFilePath fp) {
   const std::string name("xsheet.css");
   TFilePath cssFp = fp.getParentDir() + name;
   if (TFileStatus(cssFp).doesExist()) return;
-  TFilePath src = ToonzFolder::getModuleFile(name);
+  TFilePath src = FlareFolder::getModuleFile(name);
   if (TFileStatus(src).doesExist()) {
     try {
       TSystem::copyFile(cssFp, src);
@@ -2070,7 +2070,7 @@ static void makeHtml(TFilePath fp) {
   os << "<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">"
      << endl;
   os << "<meta http-equiv=\"Content-Style-Type\" content=\"text/css\">" << endl;
-  os << "<meta name=\"Generator\" content=\"Toonz 5.2\">" << endl;
+  os << "<meta name=\"Generator\" content=\"Flare\">" << endl;
   os << "<link rel=\"stylesheet\" type=\"text/css\" href=\"xsheet.css\">"
      << endl;
   os << "</head><body>" << endl;
@@ -2418,3 +2418,4 @@ public:
     TApp::instance()->getCurrentScene()->setDirtyFlag(true);
   }
 } incrementInstancesCommand;
+

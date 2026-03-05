@@ -5,16 +5,16 @@
 #include "tsystem.h"
 #include "tconvert.h"
 #include "tenv.h"
-#include "toonz/tproject.h"
-#include "toonz/toonzscene.h"
-#include "toonzqt/gutil.h"
+#include "flare/tproject.h"
+#include "flare/toonzscene.h"
+#include "flareqt/gutil.h"
 
 #include "filebrowser.h"
 #include "history.h"
 #include "iocommand.h"
 
 #include "tapp.h"
-#include "toonz/tscenehandle.h"
+#include "flare/tscenehandle.h"
 
 #include <QFileInfo>
 #include <QDir>
@@ -1070,7 +1070,7 @@ void DvDirModelRootNode::refreshChildren() {
     addChild(child);
 
     child = new DvDirModelSpecialFileFolderNode(
-        this, L"Library", ToonzFolder::getLibraryFolder());
+        this, L"Library", FlareFolder::getLibraryFolder());
     child->setIconName("library");
     m_specialNodes.push_back(child);
     addChild(child);
@@ -1536,3 +1536,4 @@ void DvDirModel::onPreferenceChanged(const QString &prefName) {
     rootNode->updateSceneFolderNodeVisibility(priority ==
                                               Preferences::ProjectFolderOnly);
 }
+

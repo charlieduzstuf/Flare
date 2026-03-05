@@ -9,13 +9,13 @@
 #include "saveloadqsettings.h"
 #include "custompanelmanager.h"
 #include "layoutUtils.h"
-#include "toonzqt/gutil.h"
+#include "flareqt/gutil.h"
 
 // TnzLib includes
-#include "toonz/toonzfolders.h"
-#include "toonz/tscenehandle.h"
-#include "toonz/toonzscene.h"
-#include "toonz/sceneproperties.h"
+#include "flare/toonzfolders.h"
+#include "flare/tscenehandle.h"
+#include "flare/toonzscene.h"
+#include "flare/sceneproperties.h"
 #include "layoutPresetsEditorPopup.h"
 
 // TnzCore includes
@@ -63,7 +63,7 @@ TPanel::~TPanel() {
   // restore them when opening the floating panel next time
   if (isFloating()) {
     TFilePath savePath =
-        ToonzFolder::getMyModuleDir() + TFilePath("popups.ini");
+        FlareFolder::getMyModuleDir() + TFilePath("popups.ini");
     QSettings settings(QString::fromStdWString(savePath.getWideString()),
                        QSettings::IniFormat);
     settings.beginGroup("Panels");
@@ -151,7 +151,7 @@ void TPanel::leaveEvent(QEvent *event) {
     in floatingpanelcommand.cpp
 */
 void TPanel::restoreFloatingPanelState() {
-  TFilePath savePath = ToonzFolder::getMyModuleDir() + TFilePath("popups.ini");
+  TFilePath savePath = FlareFolder::getMyModuleDir() + TFilePath("popups.ini");
   QSettings settings(QString::fromStdWString(savePath.getWideString()),
                      QSettings::IniFormat);
   settings.beginGroup("Panels");
@@ -881,3 +881,4 @@ TPanel *TPanelFactory::createPanel(QWidget *parent) {
 }
 
 //-----------------------------------------------------------------------------
+

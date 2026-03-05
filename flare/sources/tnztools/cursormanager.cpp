@@ -4,11 +4,7 @@
 #include "tools/tool.h"
 #include "tools/cursors.h"
 
-#ifdef TOONZQT_EXPORTS
-#include "toonz/preferences.h"
-#else
-#include "../flare/preferences.h"
-#endif
+#include "flare/preferences.h"
 
 #include <QWidget>
 #include <QPixmap>
@@ -312,4 +308,5 @@ void setToolCursor(QWidget *viewer, int cursorType) {
 QCursor getToolCursor(int cursorType) {
   return CursorManager::instance()->getCursor(cursorType);
 }
+
 

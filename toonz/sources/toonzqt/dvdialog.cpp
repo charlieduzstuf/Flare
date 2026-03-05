@@ -1,16 +1,16 @@
-#include "toonzqt/dvdialog.h"
+"flareqt/dvdialog.h"
 
 // TnzQt includes
-#include "toonzqt/checkbox.h"
-#include "toonzqt/lineedit.h"
-#include "toonzqt/fxsettings.h"
+"flareqt/checkbox.h"
+"flareqt/lineedit.h"
+"flareqt/fxsettings.h"
 
 // TnzLib includes
-#include "toonz/txsheethandle.h"
-#include "toonz/txshsimplelevel.h"
-#include "toonz/palettecmd.h"
-#include "toonz/preferences.h"
-#include "toonz/toonzfolders.h"
+"flare/txsheethandle.h"
+"flare/txshsimplelevel.h"
+"flare/palettecmd.h"
+"flare/preferences.h"
+"flare/toonzfolders.h"
 
 // TnzCore includes
 #include "tversion.h"
@@ -69,7 +69,7 @@ QPixmap getMsgBoxPixmap(MsgType type) {
 //-----------------------------------------------------------------------------
 
 QString getMsgBoxTitle(MsgType type) {
-  TVER::ToonzVersion tver;
+  TVER::FlareVersion tver;
   QString title = QString::fromStdString(tver.getAppName() + " " +
                                          tver.getAppVersionString() + " - ");
 
@@ -281,7 +281,7 @@ Dialog::Dialog(QWidget *parent, bool hasButton, bool hasFixedSize,
 
   if (settingsPath.isEmpty()) {
     TFilePath savePath =
-        ToonzFolder::getMyModuleDir() + TFilePath("popups.ini");
+        FlareFolder::getMyModuleDir() + TFilePath("popups.ini");
     settingsPath = QString::fromStdWString(savePath.getWideString());
   }
 
@@ -313,7 +313,7 @@ Dialog::Dialog(QWidget *parent, bool hasButton, bool hasFixedSize,
     // make sure that the window is visible on the screen
     // all popups will popup on the active window the first time
     // so popups moved to other monitors will be moved back
-    // when restarting OpenToonz.
+    // when restarting Flare.
 
     // This may be somewhat annoying if a user REALLY wants the popup
     // on another monitor by default, but this is better than
@@ -1472,3 +1472,4 @@ int DVGui::eraseStylesInDemand(TPalette *palette, std::vector<int> styleIds,
 }
 
 //-----------------------------------------------------------------------------
+

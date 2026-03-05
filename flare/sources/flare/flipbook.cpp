@@ -32,25 +32,25 @@
 #include "tvectorrenderdata.h"
 
 // Qt helpers
-#include "toonzqt/gutil.h"
-#include "toonzqt/imageutils.h"
+#include "flareqt/gutil.h"
+#include "flareqt/imageutils.h"
 
 // App-Stage includes
 #include "tapp.h"
 #include "toutputproperties.h"
-#include "toonz/txsheethandle.h"
-#include "toonz/txshsimplelevel.h"
-#include "toonz/levelproperties.h"
-#include "toonz/tscenehandle.h"
-#include "toonz/toonzscene.h"
-#include "toonz/sceneproperties.h"
-#include "toonz/txshlevelhandle.h"
-#include "toonz/tcamera.h"
-#include "toonz/preferences.h"
-#include "toonz/tproject.h"
+#include "flare/txsheethandle.h"
+#include "flare/txshsimplelevel.h"
+#include "flare/levelproperties.h"
+#include "flare/tscenehandle.h"
+#include "flare/toonzscene.h"
+#include "flare/sceneproperties.h"
+#include "flare/txshlevelhandle.h"
+#include "flare/tcamera.h"
+#include "flare/preferences.h"
+#include "flare/tproject.h"
 
 // Image painting
-#include "toonz/imagepainter.h"
+#include "flare/imagepainter.h"
 
 // Preview
 #include "previewfxmanager.h"
@@ -62,8 +62,8 @@
 #include "mainwindow.h"
 
 // Other widgets
-#include "toonzqt/flipconsole.h"
-#include "toonzqt/dvdialog.h"
+#include "flareqt/flipconsole.h"
+#include "flareqt/dvdialog.h"
 #include "filmstripselection.h"
 #include "castselection.h"
 #include "histogrampopup.h"
@@ -780,7 +780,7 @@ void FlipBook::onButtonPressed(FlipConsole::EGadget button) {
       return;
     } else if ((TVectorImageP)img) {
       DVGui::warning(
-          tr("It is not possible to take or compare snapshots for Toonz vector "
+          tr("It is not possible to take or compare snapshots for Flare vector "
              "levels."));
       return;
     }
@@ -803,7 +803,7 @@ void FlipBook::onButtonPressed(FlipConsole::EGadget button) {
     if (m_flipConsole->isChecked(FlipConsole::eCompare) &&
         (TVectorImageP)getCurrentImage(m_flipConsole->getCurrentFrame())) {
       DVGui::warning(
-          tr("It is not possible to take or compare snapshots for Toonz vector "
+          tr("It is not possible to take or compare snapshots for Flare vector "
              "levels."));
       // cancel the button pressing
       m_flipConsole->pressButton(FlipConsole::eCompare);
@@ -2306,3 +2306,4 @@ FlipBook *viewFile(const TFilePath &path, int from, int to, int step,
 }
 
 //-----------------------------------------------------------------------------
+

@@ -1,9 +1,9 @@
 
 
 // TnzLib includes
-#include "toonz/toonzscene.h"
-#include "toonz/preferences.h"
-#include "toonz/sceneproperties.h"
+#include "flare/toonzscene.h"
+#include "flare/preferences.h"
+#include "flare/sceneproperties.h"
 #include "toutputproperties.h"
 
 // TnzBase includes
@@ -41,8 +41,8 @@ typedef QualifierT<TFilePath> FilePathQualifier;
 
 #define RENDER_LICENSE_NOT_FOUND 888
 
-const char *rootVarName     = "TOONZROOT";
-const char *systemVarPrefix = "TOONZ";
+const char *rootVarName     = "FLAREROOT";
+const char *systemVarPrefix = "FLARE";
 
 namespace {
 
@@ -466,3 +466,4 @@ int main(int argc, char *argv[]) {
   cout << endl << msg << endl;
   return 0;
 }
+

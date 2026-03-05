@@ -8,19 +8,19 @@
 #include "menubarpopup.h"
 
 // TnzQt includes
-#include "toonzqt/tselectionhandle.h"
-#include "toonzqt/dvdialog.h"
-#include "toonzqt/menubarcommand.h"
-#include "toonzqt/gutil.h"
+#include "flareqt/tselectionhandle.h"
+#include "flareqt/dvdialog.h"
+#include "flareqt/menubarcommand.h"
+#include "flareqt/gutil.h"
 
 // TnzLib includes
-#include "toonz/toonzscene.h"
-#include "toonz/childstack.h"
-#include "toonz/tscenehandle.h"
-#include "toonz/txsheethandle.h"
-#include "toonz/tframehandle.h"
-#include "toonz/tcolumnhandle.h"
-#include "toonz/toonzfolders.h"
+#include "flare/toonzscene.h"
+#include "flare/childstack.h"
+#include "flare/tscenehandle.h"
+#include "flare/txsheethandle.h"
+#include "flare/tframehandle.h"
+#include "flare/tcolumnhandle.h"
+#include "flare/toonzfolders.h"
 
 // TnzTools includes
 #include "tools/toolcommandids.h"
@@ -1552,7 +1552,7 @@ void StackedMenuBar::doCustomizeMenuBar(int index) {
     /*- OKが押され、roomname_menubar.xmlが更新された状態 -*/
     /*- xmlファイルからメニューバーを作り直して格納 -*/
     std::string mbFileName = room->getPath().getName() + "_menubar.xml";
-    TFilePath mbPath       = ToonzFolder::getMyRoomsDir() + mbFileName;
+    TFilePath mbPath       = FlareFolder::getMyRoomsDir() + mbFileName;
     if (!TFileStatus(mbPath).isReadable()) {
       DVGui::warning(tr("Cannot open menubar settings file %1")
                          .arg(QString::fromStdString(mbFileName)));
@@ -1632,3 +1632,4 @@ TopBar::TopBar(QWidget *parent) : QToolBar(parent) {
                        SLOT(setIsLocked(bool)));
   assert(ret);
 }
+

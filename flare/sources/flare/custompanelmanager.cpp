@@ -5,7 +5,7 @@
 #include "pane.h"
 
 // ToonzLib
-#include "toonz/toonzfolders.h"
+#include "flare/toonzfolders.h"
 // ToonzCore
 #include "tsystem.h"
 
@@ -20,7 +20,7 @@ namespace {
 
 const TFilePath CustomPanelFolderName("custompanels");
 const TFilePath customPaneFolderPath() {
-  return ToonzFolder::getMyModuleDir() + CustomPanelFolderName;
+  return FlareFolder::getMyModuleDir() + CustomPanelFolderName;
 }
 }  // namespace
 
@@ -241,3 +241,4 @@ public:
                                               panelId.toStdString());
   }
 } openCustomPanelCommandHandler;
+
